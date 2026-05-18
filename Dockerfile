@@ -21,12 +21,12 @@ RUN npm run build
 
 # ==========================================
 # ESTÁGIO 2: Produção (A Vitrine)
-# ==========================================
+# ========================================== ooooiiiieee
 # 7. Iniciamos uma nova imagem, agora usando o NGINX (um servidor web ultraleve)
 FROM nginx:alpine
 
 # 8. Copiamos APENAS a pasta "dist" do Estágio 1 para a pasta pública do NGINX
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html 
 
 # 9. Expomos a porta padrão do NGINX
 EXPOSE 80
