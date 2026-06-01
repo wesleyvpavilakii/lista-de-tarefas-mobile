@@ -33,7 +33,7 @@ import Button from "./components/Button";
 //     </main>
 //   )
 // }
-
+import Neymar from "./assets/neymar.png";
 export default function App() {
 
   const [atividade, setAtividade] = useState("");
@@ -76,39 +76,45 @@ export default function App() {
     setListaAtividade(novaLista);
   }
 
-  return (
-    <div>
+ return (
+  <div>
 
-      <h2>Lista de Tarefas</h2>
+    <img
+      src={Neymar}
+      alt="Neymar"
+      width="200"
+    />
 
-      <input 
-        type="text" 
-        value={atividade} 
-        onChange={e => atualizarAtividade(e.target.value)}
-        placeholder="Digite uma tarefa"/>
+    <h2>Lista de Tarefas</h2>
 
-      <Button funcao={adicionarAtividade} btnText="Adicionar"/>
+    <input
+      type="text"
+      value={atividade}
+      onChange={e => atualizarAtividade(e.target.value)}
+      placeholder="Digite uma tarefa"
+    />
 
-      <ul>
-        {listaAtividade.map(atv =>(
-          <li key={atv.id}>
+    <Button funcao={adicionarAtividade} btnText="Adicionar"/>
 
-            <input 
-              type="checkbox"
-              checked={atv.feita}
-              onChange={() => marcarComoFeita(atv.id)}/>
-              {atv.texto}
+    <ul>
+      {listaAtividade.map(atv =>(
+        <li key={atv.id}>
+          <input
+            type="checkbox"
+            checked={atv.feita}
+            onChange={() => marcarComoFeita(atv.id)}
+          />
+          {atv.texto}
 
-            <Button
-              funcao={() => removerAtividade(atv.id)}
-              btnText="Remover"/>
+          <Button
+            funcao={() => removerAtividade(atv.id)}
+            btnText="Remover"
+          />
+        </li>
+      ))}
+    </ul>
 
-          </li>
-        ))}
-      </ul>
+  </div>
+)
 
-    </div>
-  )
 }
-
-
